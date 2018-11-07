@@ -1,5 +1,5 @@
 import Keyboard from 'simple-keyboard';
-import SimpleKeyboardAutocorrect from './Autocorrect';
+import SimpleKeyboardKeyNavigation from './KeyNavigation';
 
 
 it('Keyboard renders without crashing', () => {
@@ -12,10 +12,9 @@ it('Keyboard renders without crashing', () => {
     debug: true,
     onChange: input => input,
     onKeyPress: button => button,
-    newLineOnEnter: true,
-    autocorrectDict: ["data", "test"],
+    enableKeyNavigation: true,
     modules: [
-      SimpleKeyboardAutocorrect
+      SimpleKeyboardKeyNavigation
     ]
   });
 });
