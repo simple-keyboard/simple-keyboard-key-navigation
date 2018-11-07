@@ -1,0 +1,5 @@
+.simple-keyboard .hg-button.hg-standardBtn.hg-keyMarker,
+.simple-keyboard .hg-button.hg-functionBtn.hg-keyMarker {
+  box-shadow: 0 0 0 2px #88b8ff;
+  border-radius: 5px;
+}
