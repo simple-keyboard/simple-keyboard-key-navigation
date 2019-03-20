@@ -29,6 +29,7 @@ import "simple-keyboard-key-navigation/build/css/index.css";
 let keyboard = new Keyboard({
   onChange: input => onChange(input),
   onKeyPress: button => onKeyPress(button),
+  useMouseEvents: true,
   enableKeyNavigation: true,
   modules: [
     keyNavigation
@@ -101,6 +102,7 @@ let keyNavigation = window.SimpleKeyboardKeyNavigation.default;
 let keyboard = new Keyboard({
   onChange: input => onChange(input),
   onKeyPress: button => onKeyPress(button),
+  useMouseEvents: true,
   enableKeyNavigation: true,
   modules: [
     keyNavigation
