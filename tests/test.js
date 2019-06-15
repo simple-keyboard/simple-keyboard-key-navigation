@@ -1,11 +1,10 @@
 import Keyboard from 'simple-keyboard';
-import SimpleKeyboardKeyNavigation from './KeyNavigation';
+import SimpleKeyboardKeyNavigation from '../src/index';
 
-
-it('Keyboard renders without crashing', () => {
+test('Runs without crashing', () => {
   const div = document.createElement('div');
   
-  div.className += "simple-keyboard";
+  div.className = "simple-keyboard";
   document.body.appendChild(div);
 
   let keyboard = new Keyboard({
@@ -17,4 +16,10 @@ it('Keyboard renders without crashing', () => {
       SimpleKeyboardKeyNavigation
     ]
   });
+
+  keyboard.modules.keyNavigation.right();
+  keyboard.modules.keyNavigation.down();
+  keyboard.modules.keyNavigation.press();
+
+  expect(keyboard.getInput()).toBe("q");
 });

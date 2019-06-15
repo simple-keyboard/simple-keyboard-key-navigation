@@ -1,0 +1,37 @@
+#root {
+  font-family: sans-serif;
+  max-width: 850px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.input {
+  width: 100%;
+  border: 0;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.simple-keyboard.simple-keyboard-controller.hg-theme-default {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: column;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.simple-keyboard.simple-keyboard-controller.hg-theme-default .hg-button {
+  flex-grow: 0;
+  min-width: 50px;
+  min-height: 50px;
+}
+
+.simple-keyboard.simple-keyboard-controller.hg-theme-default
+  .hg-button.hg-functionBtn.hg-button-enter {
+  width: 160px;
+}
