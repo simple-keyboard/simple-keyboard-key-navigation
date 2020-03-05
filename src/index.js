@@ -3,6 +3,9 @@ import "./index.css";
 class SimpleKeyboardKeyNavigation {
   init = keyboard => {
     keyboard.registerModule("keyNavigation", module => {
+      module.initMarkerPos = [0, 0];
+      module.lastMarkerPos = module.initMarkerPos;
+
       module.initVars = layoutName => {
         module.markerPosition = {
           row: 0,
@@ -13,7 +16,11 @@ class SimpleKeyboardKeyNavigation {
       };
 
       module.initMarker = () => {
-        module.setMarker(0, 0);
+        const initMarkerPos = module.getButtonAt(...module.lastMarkerPos)
+          ? module.lastMarkerPos
+          : module.initMarkerPos;
+
+        module.setMarker(...initMarkerPos);
       };
 
       module.getButtonAt = (rowPos, btnPos) => {
@@ -35,15 +42,20 @@ class SimpleKeyboardKeyNavigation {
 
           module.markedBtn = buttonDOM;
 
+          module.lastMarkerPos = [rowPos, btnPos];
           module.markerPosition = {
             row: rowPos,
             button: btnPos
           };
+
+          return true;
         } else {
           if (keyboard.options.debug)
             console.log(
               `SimpleKeyboardKeyNavigation: Button default-r${rowPos}b${btnPos} doesnt exist!`
             );
+
+          return false;
         }
       };
 
