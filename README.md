@@ -1,4 +1,4 @@
-<a href="https://franciscohodge.com/projects/simple-keyboard/demo-showcase/module-key-navigation/" title="See demo" target="_blank"><img src="https://franciscohodge.com/project-pages/simple-keyboard/images/keyNav2.png" width="100%"></a>
+<a href="https://hodgef.com/simple-keyboard/modules/key-navigation/" title="See demo" target="_blank"><img src="https://i.imgur.com/sPYCBCw.png" width="100%"></a>
 
 <blockquote>Autocorrect module for simple-keyboard</blockquote>
 
@@ -13,11 +13,11 @@
 
 ## ✨ Demo
 
-[Key Navigation module demo](https://franciscohodge.com/projects/simple-keyboard/demo-showcase/module-key-navigation/)
+[Key Navigation module demo](https://hodgef.com/simple-keyboard/editor/?d=simple-keyboard/simple-keyboard-key-navigation-npm/tree/master)
 
 ## 📦 Installation & Usage
 
-Check out the [Getting Started](https://franciscohodge.com/projects/simple-keyboard/modules/key-navigation/) docs to begin.
+Check out the [Getting Started](https://hodgef.com/simple-keyboard/modules/key-navigation/) docs to begin.
 
 ## 📃 Options and Customization
 
