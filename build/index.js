@@ -1,6 +1,6 @@
 /*!
  * 
- *   simple-keyboard-key-navigation v2.1.93
+ *   simple-keyboard-key-navigation v2.1.94
  *   https://github.com/hodgef/simple-keyboard-key-navigation
  * 
  *   Copyright (c) Francisco Hodge (https://github.com/hodgef)
