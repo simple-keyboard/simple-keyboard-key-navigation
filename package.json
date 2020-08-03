@@ -44,7 +44,7 @@
     "babel-preset-minify": "^0.5.0",
     "css-loader": "^4.2.0",
     "file-loader": "^6.0.0",
-    "jest": "^26.2.1",
+    "jest": "^26.2.2",
     "prettier": "^1.19.1",
     "prettier-webpack-plugin": "^1.2.0",
     "simple-keyboard": "^2.29.86",
