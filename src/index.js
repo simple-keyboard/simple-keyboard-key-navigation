@@ -110,9 +110,22 @@ class SimpleKeyboardKeyNavigation {
       };
 
       module.press = () => {
-        if (module.markedBtn && module.markedBtn.onclick) {
-          module.markedBtn.onclick();
+        if (module.markedBtn) {
+          if (module.markedBtn.onpointerdown) {
+            module.markedBtn.onpointerdown();
+            module.markedBtn.onpointerup();
+          } else if (module.markedBtn.onclick) {
+            module.markedBtn.onclick();
+          } else if (module.markedBtn.ontouchdown) {
+            module.markedBtn.ontouchdown();
+            module.markedBtn.ontouchup();
+          }
         }
+      };
+
+      module.init = () => {
+        module.initVars(keyboard.options.layoutName);
+        module.initMarker();
       };
 
       module.fn = {};
@@ -126,12 +139,13 @@ class SimpleKeyboardKeyNavigation {
           if (keyboard.options.debug)
             console.log(`SimpleKeyboardKeyNavigation: Refreshed`);
 
-          module.initVars(keyboard.options.layoutName);
-          module.initMarker();
+          module.init();
         }
 
         module.fn.onRender();
       };
+
+      module.init();
     });
   };
 }
