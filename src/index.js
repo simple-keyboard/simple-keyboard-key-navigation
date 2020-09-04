@@ -145,7 +145,9 @@ class SimpleKeyboardKeyNavigation {
         module.fn.onRender();
       };
 
-      module.init();
+      if (keyboard.options.enableKeyNavigation) {
+        module.init();
+      }
     });
   };
 }
