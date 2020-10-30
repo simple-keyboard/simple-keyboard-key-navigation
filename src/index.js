@@ -36,9 +36,17 @@ class SimpleKeyboardKeyNavigation {
         if (buttonDOM) {
           if (module.markedBtn) {
             module.markedBtn.classList.remove("hg-keyMarker");
+
+            if (keyboard.options.markerColor) {
+              module.markedBtn.style = "";
+            }
           }
 
           buttonDOM.classList.add("hg-keyMarker");
+
+          if (keyboard.options.markerColor) {
+            buttonDOM.style = `box-shadow: 0 0 0 2px ${keyboard.options.markerColor}`;
+          }
 
           module.markedBtn = buttonDOM;
 
@@ -130,6 +138,7 @@ class SimpleKeyboardKeyNavigation {
 
       module.fn = {};
       module.fn.onRender = keyboard.onRender;
+      module.fn.onInit = keyboard.onInit;
 
       keyboard.onRender = () => {
         if (
@@ -145,9 +154,13 @@ class SimpleKeyboardKeyNavigation {
         module.fn.onRender();
       };
 
-      if (keyboard.options.enableKeyNavigation) {
-        module.init();
-      }
+      keyboard.onInit = () => {
+        if (keyboard.options.enableKeyNavigation) {
+          module.init();
+        }
+
+        module.fn.onInit();
+      };
     });
   };
 }
