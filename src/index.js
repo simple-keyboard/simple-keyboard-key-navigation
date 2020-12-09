@@ -142,7 +142,9 @@ class SimpleKeyboardKeyNavigation {
 
       keyboard.onRender = () => {
         if (
-          keyboard.options.layoutName !== module.layoutName &&
+          (keyboard.options.layoutName !== module.layoutName ||
+            keyboard.options.enableKeyNavigation !==
+              module.enableKeyNavigation) &&
           keyboard.options.enableKeyNavigation
         ) {
           if (keyboard.options.debug)
