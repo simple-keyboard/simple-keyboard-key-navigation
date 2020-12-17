@@ -1,6 +1,6 @@
 <a href="https://hodgef.com/simple-keyboard/modules/key-navigation/" title="See demo" target="_blank"><img src="https://i.imgur.com/sPYCBCw.png" width="100%"></a>
 
-<blockquote>Autocorrect module for simple-keyboard</blockquote>
+<blockquote>Key Navigation module for simple-keyboard</blockquote>
 
  <a href="https://github.com/hodgef/simple-keyboard-key-navigation/actions">
      <img alt="Build Status" src="https://github.com/hodgef/simple-keyboard-key-navigation/workflows/Build/badge.svg?color=green" />
