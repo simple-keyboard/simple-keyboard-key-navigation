@@ -1,6 +1,6 @@
 {
   "name": "simple-keyboard-key-navigation",
-  "version": "2.3.236",
+  "version": "2.3.237",
   "description": "Key navigation module for simple-keyboard",
   "main": "build/index.js",
   "scripts": {
