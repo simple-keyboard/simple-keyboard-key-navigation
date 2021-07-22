@@ -44,6 +44,10 @@ class SimpleKeyboardKeyNavigation {
 
           buttonDOM.classList.add("hg-keyMarker");
 
+          if (keyboard.options.focusOnNavigation && buttonDOM.focus) {
+            buttonDOM.focus();
+          }
+
           if (keyboard.options.markerColor) {
             buttonDOM.style = `box-shadow: 0 0 0 2px ${keyboard.options.markerColor}`;
           }
