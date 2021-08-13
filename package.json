@@ -1,6 +1,6 @@
 {
   "name": "simple-keyboard-key-navigation",
-  "version": "2.3.260",
+  "version": "2.3.261",
   "description": "Key navigation module for simple-keyboard",
   "main": "build/index.js",
   "scripts": {
@@ -36,10 +36,10 @@
   ],
   "devDependencies": {
     "@babel/cli": "^7.14.8",
-    "@babel/core": "^7.14.8",
+    "@babel/core": "^7.15.0",
     "@babel/plugin-proposal-class-properties": "^7.14.5",
     "@babel/polyfill": "^7.12.1",
-    "@babel/preset-env": "^7.14.9",
+    "@babel/preset-env": "^7.15.0",
     "babel-loader": "^8.2.2",
     "babel-preset-minify": "^0.5.0",
     "css-loader": "^5.2.7",
@@ -47,7 +47,7 @@
     "jest": "^26.6.3",
     "prettier": "^1.19.1",
     "prettier-webpack-plugin": "^1.2.0",
-    "simple-keyboard": "3.2.34",
+    "simple-keyboard": "3.2.35",
     "style-loader": "^2.0.0",
     "url-loader": "^4.1.1",
     "webpack": "^4.46.0",
