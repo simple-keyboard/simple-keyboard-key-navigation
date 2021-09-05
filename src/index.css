@@ -1,5 +1,19 @@
 .simple-keyboard .hg-button.hg-standardBtn.hg-keyMarker,
-.simple-keyboard .hg-button.hg-functionBtn.hg-keyMarker {
+.simple-keyboard .hg-button.hg-functionBtn.hg-keyMarker,
+.simple-keyboard .hg-candidate-box-list-item.hg-keyMarker,
+.simple-keyboard .hg-candidate-box-close.hg-keyMarker {
   box-shadow: 0 0 0 2px #88b8ff;
   border-radius: 5px;
+}
+
+.simple-keyboard .hg-candidate-box-close {
+  align-items: center;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  width: 40px;
+}
+
+.simple-keyboard .hg-candidate-box-close::after {
+  content: "X";
 }

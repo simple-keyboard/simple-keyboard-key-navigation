@@ -10,6 +10,7 @@
   border: 0;
   padding: 20px;
   font-size: 20px;
+  margin-bottom: 50px;
 }
 
 .simple-keyboard.simple-keyboard-controller.hg-theme-default {
@@ -34,4 +35,8 @@
 .simple-keyboard.simple-keyboard-controller.hg-theme-default
   .hg-button.hg-functionBtn.hg-button-enter {
   width: 160px;
+}
+
+.simple-keyboard.simple-keyboard-controller .hg-row {
+  justify-content: center;
 }

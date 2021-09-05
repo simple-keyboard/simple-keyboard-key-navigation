@@ -72,6 +72,10 @@ class SimpleKeyboardKeyNavigation {
       };
 
       module.up = () => {
+        if (document.querySelector(".hg-candidate-box")) {
+          keyboard.candidateBox.destroy();
+        }
+
         let rowPos = module.markerPosition.row - module.step;
         let btnPos = module.markerPosition.button;
 
@@ -90,6 +94,10 @@ class SimpleKeyboardKeyNavigation {
       };
 
       module.down = () => {
+        if (document.querySelector(".hg-candidate-box")) {
+          keyboard.candidateBox.destroy();
+        }
+
         let rowPos = module.markerPosition.row + module.step;
         let btnPos = module.markerPosition.button;
 
@@ -108,31 +116,138 @@ class SimpleKeyboardKeyNavigation {
       };
 
       module.right = () => {
-        let rowPos = module.markerPosition.row;
-        let btnPos = module.markerPosition.button + module.step;
+        if (document.querySelector(".hg-candidate-box")) {
+          const nextElement = keyboard.candidateBox.candidateBoxElement.querySelector(
+            ".hg-candidate-box-list .hg-keyMarker"
+          ).nextElementSibling;
 
-        module.setMarker(rowPos, btnPos);
+          if (nextElement) {
+            keyboard.candidateBox.candidateBoxElement
+              .querySelector(".hg-candidate-box-list .hg-keyMarker")
+              .classList.remove("hg-keyMarker");
+
+            nextElement.classList.add("hg-keyMarker");
+          } else {
+            const nextArrowElement = keyboard.candidateBox.candidateBoxElement.querySelector(
+              ".hg-candidate-box-next.hg-candidate-box-btn-active"
+            );
+
+            if (nextArrowElement) {
+              nextArrowElement.click();
+
+              /**
+               * Push close element
+               */
+              module.createCloseButton();
+
+              /**
+               * Select first button
+               */
+              keyboard.candidateBox.candidateBoxElement
+                .querySelector("li")
+                .classList.add("hg-keyMarker");
+            }
+          }
+        } else {
+          let rowPos = module.markerPosition.row;
+          let btnPos = module.markerPosition.button + module.step;
+
+          module.setMarker(rowPos, btnPos);
+        }
       };
 
       module.left = () => {
-        let rowPos = module.markerPosition.row;
-        let btnPos = module.markerPosition.button - module.step;
+        if (document.querySelector(".hg-candidate-box")) {
+          const prevElement = keyboard.candidateBox.candidateBoxElement.querySelector(
+            ".hg-candidate-box-list .hg-keyMarker"
+          ).previousElementSibling;
 
-        module.setMarker(rowPos, btnPos);
+          if (prevElement) {
+            keyboard.candidateBox.candidateBoxElement
+              .querySelector(".hg-candidate-box-list .hg-keyMarker")
+              .classList.remove("hg-keyMarker");
+
+            prevElement.classList.add("hg-keyMarker");
+          } else {
+            const prevArrowElement = keyboard.candidateBox.candidateBoxElement.querySelector(
+              ".hg-candidate-box-prev.hg-candidate-box-btn-active"
+            );
+
+            if (prevArrowElement) {
+              prevArrowElement.click();
+
+              /**
+               * Push close element
+               */
+              module.createCloseButton();
+
+              /**
+               * Select first button
+               */
+              keyboard.candidateBox.candidateBoxElement
+                .querySelector("ul li:last-child")
+                .classList.add("hg-keyMarker");
+            }
+          }
+        } else {
+          let rowPos = module.markerPosition.row;
+          let btnPos = module.markerPosition.button - module.step;
+
+          module.setMarker(rowPos, btnPos);
+        }
       };
 
       module.press = () => {
         if (module.markedBtn) {
-          if (module.markedBtn.onpointerdown) {
-            module.markedBtn.onpointerdown();
-            module.markedBtn.onpointerup();
-          } else if (module.markedBtn.onclick) {
-            module.markedBtn.onclick();
-          } else if (module.markedBtn.ontouchdown) {
-            module.markedBtn.ontouchdown();
-            module.markedBtn.ontouchup();
+          if (
+            !keyboard.candidateBox ||
+            !document.querySelector(".hg-candidate-box")
+          ) {
+            /**
+             * Press button
+             */
+            module.markedBtn.click();
+          }
+
+          /**
+           * CandidateBox handling
+           */
+          if (document.querySelector(".hg-candidate-box")) {
+            /**
+             * If candidateBox has a closeButton
+             */
+            if (
+              keyboard.candidateBox.candidateBoxElement.querySelector(
+                ".hg-candidate-box-close"
+              )
+            ) {
+              keyboard.candidateBox.candidateBoxElement
+                .querySelector(".hg-candidate-box-list .hg-keyMarker")
+                .click();
+            } else {
+              /**
+               * Push close element
+               */
+              module.createCloseButton();
+
+              /**
+               * Select first button
+               */
+              keyboard.candidateBox.candidateBoxElement
+                .querySelector("li")
+                .classList.add("hg-keyMarker");
+            }
           }
         }
+      };
+
+      module.createCloseButton = () => {
+        const closeElem = document.createElement("li");
+        closeElem.onclick = () => keyboard.candidateBox.destroy();
+        closeElem.className = "hg-candidate-box-close";
+        keyboard.candidateBox.candidateBoxElement
+          .querySelector("ul")
+          .prepend(closeElem);
       };
 
       module.init = () => {
