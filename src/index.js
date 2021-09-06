@@ -206,7 +206,7 @@ class SimpleKeyboardKeyNavigation {
             /**
              * Press button
              */
-             if (keyboard.options.keyNavigationPressUseClick) {
+            if (keyboard.options.keyNavigationPressUseClick) {
               module.markedBtn.click();
             } else {
               keyboard.handleButtonClicked(
