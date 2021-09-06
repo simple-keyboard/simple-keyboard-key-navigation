@@ -206,7 +206,14 @@ class SimpleKeyboardKeyNavigation {
             /**
              * Press button
              */
-            module.markedBtn.click();
+             if (keyboard.options.keyNavigationPressUseClick) {
+              module.markedBtn.click();
+            } else {
+              keyboard.handleButtonClicked(
+                module.markedBtn.getAttribute("data-skbtn"),
+                { target: module.markedBtn }
+              );
+            }
           }
 
           /**
