@@ -47,7 +47,7 @@
     "jest": "^26.6.3",
     "prettier": "^1.19.1",
     "prettier-webpack-plugin": "^1.2.0",
-    "simple-keyboard": "3.7.77",
+    "simple-keyboard": "3.7.78",
     "style-loader": "^4.0.0",
     "url-loader": "^4.1.1",
     "webpack": "^5.91.0",
